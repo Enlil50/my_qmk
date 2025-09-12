@@ -301,36 +301,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // }
 
 
-// AUTOMATIC MOUSE LAYER
-bool ATML = false;           // Off by Default
-bool ATML_Active = false;    // Holds active or inactive state
-uint16_t ATML_Timer;
+// // AUTOMATIC MOUSE LAYER
+// bool ATML = false;           // Off by Default
+// bool ATML_Active = false;    // Holds active or inactive state
+// uint16_t ATML_Timer;
 
-#define ATML_TIMEOUT 2000     // Auto Mouse Layer Timeout
-#define TIMER_LIMITER 500     // Assumed example limiter value
-#define MOUSE_BUTTONS_LAYER 5
+// #define ATML_TIMEOUT 2000     // Auto Mouse Layer Timeout
+// #define TIMER_LIMITER 500     // Assumed example limiter value
+// #define MOUSE_BUTTONS_LAYER 5
 
-void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
-    uint16_t elapsed = timer_elapsed(ATML_Timer);
+// void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
+//     uint16_t elapsed = timer_elapsed(ATML_Timer);
 
-    layer_on(MOUSE_BUTTONS_LAYER);
+//     layer_on(MOUSE_BUTTONS_LAYER);
 
-    // Turns on layer when there's mouse movment
-    if (mouse_report->x || mouse_report->y) {
-        if (!ATML_Active) {
-            layer_on(MOUSE_BUTTONS_LAYER);
-            ATML_Active = true;
-        } // This is debounce, to prevent unecessary timer updates on every update. Clamp it to 501ms in this case
-        if (elapsed > TIMER_LIMITER) { // Clamp it to 501ms in this case
-            ATML_Timer = timer_read();
-        }
-    } else if (elapsed > ATML_TIMEOUT) { // Turns off layer after time out.
-        if (ATML_Active) {
-            layer_off(MOUSE_BUTTONS_LAYER);
-            ATML_Active = false;
-        }
-    }
-}
+//     // Turns on layer when there's mouse movment
+//     if (mouse_report->x || mouse_report->y) {
+//         if (!ATML_Active) {
+//             layer_on(MOUSE_BUTTONS_LAYER);
+//             ATML_Active = true;
+//         } // This is debounce, to prevent unecessary timer updates on every update. Clamp it to 501ms in this case
+//         if (elapsed > TIMER_LIMITER) { // Clamp it to 501ms in this case
+//             ATML_Timer = timer_read();
+//         }
+//     } else if (elapsed > ATML_TIMEOUT) { // Turns off layer after time out.
+//         if (ATML_Active) {
+//             layer_off(MOUSE_BUTTONS_LAYER);
+//             ATML_Active = false;
+//         }
+//     }
+// }
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
