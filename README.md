@@ -1,4 +1,3 @@
-<img src="./Images/Keyboard_h.jpg" width=max-width>
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
 # Executables
