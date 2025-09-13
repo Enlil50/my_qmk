@@ -52,3 +52,16 @@ So that it looks like:
 
 # Trackpoint pinout setup
 <img src="./Images/Trackpoint.jpg" width="500">
+
+# Desktop Enviroment (KDE Plasma)
+In ```KDE Plasma``` folder you can find both monitor overview and keyboard shortcuts files.
+
+* Replace overview.page in the following path:
+```
+.local/share/plasma-systemmonitor/overview.page
+```
+
+* Replace kglobalshortcutsrc in the following path:
+```
+/home/elil50/.config/kglobalshortcutsrc
+```
