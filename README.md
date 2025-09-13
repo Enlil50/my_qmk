@@ -8,7 +8,7 @@
 
 # User files and changes
 
-* ### Keymap.c, rules.mk and config.h
+* ### Keymap.c, rules.mk, config.h
 
 Add in folder:
 ```
