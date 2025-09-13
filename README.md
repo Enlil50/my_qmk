@@ -1,7 +1,3 @@
-# :one: Keyboard
-
-<img src="./Images/Keyboard_horizontal.jpg" width=max-width>
-
 ## Executables
 
 * **qmk_file_inject.sh:** inject user files in qmk_firmware
@@ -9,6 +5,10 @@
 * **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
 
 * **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
+
+# :one: Keyboard
+
+<img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
 ## User files and changes to qmk_firmware
 
