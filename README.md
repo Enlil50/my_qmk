@@ -60,6 +60,8 @@ So that it looks like:
 
 ---
 
+<br>
+
 # Desktop Enviroment (KDE Plasma)
 <img src="./Images/Monitor_overview.png" width=max-width>
 
