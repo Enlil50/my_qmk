@@ -56,6 +56,9 @@ So that it looks like:
 <img src="./Images/Trackpoint.jpg" width="500">
 
 # Desktop Enviroment (KDE Plasma)
+<img src="./Images/Monitor_overview.jpg" width="500">
+
+
 In ```KDE Plasma``` folder you can find both monitor overview and keyboard shortcuts files.
 
 * Replace overview.page in the following path:
