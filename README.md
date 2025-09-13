@@ -56,7 +56,7 @@ So that it looks like:
 <img src="./Images/Trackpoint.jpg" width="500">
 
 
-
+<br>
 ---
 
 # Desktop Enviroment (KDE Plasma)
