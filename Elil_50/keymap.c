@@ -326,6 +326,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
                                   TD(META_TO6),  LEFT_TOGGLE, KC_LCTL, 	TD(TD_SHIFT_CAPS),  RIGHT_TOGGLE,  ESC_ALT
                                         //`--------------------------'  `--------------------------'
   ),
+
+
+
+  // ------------------------------ ADD ADDITIONAL LAYERS ONLY AFTER THESE LAYERS, for hyerarchy purposes ------------------------------
+
+
   
      [3] = LAYOUT_split_3x6_3( //vr_chat
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
@@ -353,7 +359,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
 
 
 
-  // ADD ADDITIONAL LAYERS ONLY BEFORE THESE LAYERS, for hyerarchy purposes
+  // ------------------------------ ADD ADDITIONAL LAYERS ONLY BEFORE THESE LAYERS, for hyerarchy purposes ------------------------------
+
+
 
   [MY_MAX_LAYER-1] = LAYOUT_split_3x6_3( // mouse transparent layer
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.

@@ -10,6 +10,12 @@
 
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
+## Keyboard layout
+
+<img src="./Images/1.jpg" width=max-width>
+<img src="./Images/2.jpg" width=max-width>
+<img src="./Images/3.jpg" width=max-width>
+
 ## User files and changes to qmk_firmware
 
 * ### Keymap.c, rules.mk, config.h
@@ -78,4 +84,4 @@ In ```KDE_Plasma``` folder you can find both monitor overview and keyboard short
 
 ## OS Shortcuts
 
-<img src="./Images/0.png" width=max-width>
+<img src="./Images/0.jpg" width=max-width>
