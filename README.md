@@ -1,4 +1,4 @@
-# Keyboard
+# :one: Keyboard
 
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
@@ -62,7 +62,7 @@ So that it looks like:
 
 <br>
 
-# Desktop Enviroment (KDE Plasma)
+# :two: Desktop Enviroment (KDE Plasma)
 <img src="./Images/Monitor_overview.png" width=max-width>
 
 
