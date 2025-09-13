@@ -55,6 +55,8 @@ So that it looks like:
 ## Trackpoint pinout setup
 <img src="./Images/Trackpoint.jpg" width="500">
 
+
+
 ---
 
 # Desktop Enviroment (KDE Plasma)
