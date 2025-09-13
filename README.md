@@ -53,7 +53,7 @@ So that it looks like:
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated
 
 * ### Trackpoint pinout setup
-<img src="./Images/Trackpoint.jpg" width="500">
+<img src="./Images/Trackpoint.jpg" width="400">
 
 
 <br>
