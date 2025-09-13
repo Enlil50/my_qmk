@@ -16,7 +16,7 @@
 
 Add the folder ``` Elil_50 ``` in the following path:
 ```
-/home/elil50/Documents/qmk/qmk_firmware/keyboards/crkbd/keymaps
+./qmk_firmware/keyboards/crkbd/keymaps
 ```
 
 * ### PS/2 Driver Trackpoint
@@ -26,7 +26,7 @@ So I need to add those pull-up resistors (didn't do it), or apply the following 
 
 Add in line 150 of file:
 ```
-/home/elil50/Documents/qmk/qmk_firmware/platforms/chibios/drivers/vendor/RP/RP2040/ps2_vendor.c
+./qmk_firmware/platforms/chibios/drivers/vendor/RP/RP2040/ps2_vendor.c
 ```
 The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
 ```c
