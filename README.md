@@ -1,4 +1,4 @@
-# Executables:
+# Executables
 
 * **qmk_file_inject.sh:** inject user files in qmk_firmware
 
@@ -6,7 +6,7 @@
 
 * **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
 
-# User files and changes:
+# User files and changes
 
 * ### Keymap.c, rules.mk and config.h
 
@@ -23,7 +23,7 @@ Elil_50
 * ### PS/2 Driver Trackpoint
 
 The host needs pull-up resistors on PS/2 DATA and CLK lines. The built-in pullup resistors from the host 4k to 100k are acceptable. 
-So I need to add those pull-up resistors (didn't do it), or apply the following patch
+So I need to add those pull-up resistors (didn't do it), or apply the following patch:
 
 Add in line 150 of:
 ```
