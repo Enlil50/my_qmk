@@ -1,4 +1,4 @@
-<img src="./Images/Keyboard.jpg" width="220">
+<img src="./Images/Keyboard.jpg" width="200">
 
 # Executables
 
