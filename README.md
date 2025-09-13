@@ -75,3 +75,7 @@ In ```KDE_Plasma``` folder you can find both monitor overview and keyboard short
 ```
 .config/kglobalshortcutsrc
 ```
+
+## OS Shortcuts
+
+<img src="./Images/0.png" width=max-width>
