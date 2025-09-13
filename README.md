@@ -1,4 +1,4 @@
-![Alt text](./Images/Keyboard.jpg?raw=true "Optional Title")
+<img src=""./Images/Keyboard.jpg" width="30">
 
 # Executables
 
