@@ -1,5 +1,4 @@
 <img src="./Images/Keyboard_4.jpg" width="200">
-<img src="./Images/Keyboard_3.jpg" width="200">
 <img src="./Images/Keyboard_2.jpg" width="200">
 
 # Executables
