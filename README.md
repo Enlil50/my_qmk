@@ -1,10 +1,10 @@
 # Following executables:
 
-**qmk_file_inject.sh:** inject user files in qmk_firmware
+* **qmk_file_inject.sh:** inject user files in qmk_firmware
 
-**flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
+* **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
 
-**commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
+* **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
 
 # User files and changes:
 
