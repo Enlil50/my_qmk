@@ -37,15 +37,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Sensitivity: Adress: 0x4A, value: 0 - 255 in hex. Default: 0x59
 // Speed: Adress: 0x60, value: 0 - 255 in hex. Default: 0x61
 // Negative Inertia: Adress: 0x4D, value: 0 - 255 in hex. Default: 0x06
-// Press to select: Adress: 0x2C, value: 0 (disabled) or 1 (enabled) in hex (0x00 or 0xFF)
+// ?? Press to select: Adress: 0x2C, value: 0 (disabled) or 1 (enabled) in hex (0x00 or 0xFF)
 
-// void ps2_mouse_init_user() {
-//     PS2_MOUSE_SEND(0xE2, "tppress: 0xE2"); //enable writing on the Trackpoint
-//     PS2_MOUSE_SEND(0x81, "tppress: 0x81"); //enable writing on the Trackpoint
-//     PS2_MOUSE_SEND(0x2C, "tppress: 0x2C");
-//     PS2_MOUSE_SEND(0xFF, "tppress: 0xFF");
-// }
+void ps2_mouse_init_user() {
+    PS2_MOUSE_SEND(0xE2, "tpspeed: 0xE2"); //enable writing on the Trackpoint
+    PS2_MOUSE_SEND(0x81, "tpspeed: 0x81"); //enable writing on the Trackpoint
+    PS2_MOUSE_SEND(0x60, "tpspeed: 0x60"); // address
+    PS2_MOUSE_SEND(0xFF, "tpspeed: 0xFF"); // value
 
+    PS2_MOUSE_SEND(0xE2, "tpsens: 0xE2"); //enable writing on the Trackpoint
+    PS2_MOUSE_SEND(0x81, "tpsens: 0x81"); //enable writing on the Trackpoint
+    PS2_MOUSE_SEND(0x4A, "tpsens: 0x4A"); // address
+    PS2_MOUSE_SEND(0xB4, "tpsens: 0xB4"); // value
+
+    // PS2_MOUSE_SEND(0xE2, "ptson: 0xE2"); //enable writing on the Trackpoint
+    // PS2_MOUSE_SEND(0x47, "ptson: 0x47"); //enable writing on the Trackpoint
+    // PS2_MOUSE_SEND(0x2C, "ptson: 0x2C"); // address
+    // PS2_MOUSE_SEND(0xFF, "ptson: 0xFF"); // value
+}
 
 //    %--------------%
 //    |   NEW KEYS   |
@@ -258,29 +267,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //    |  AUTOMATIC MOUSE LAYER  |
 //    %-------------------------%
 
-//  static uint32_t turn_off(uint32_t trigger_time, void *arg) {
-//      const uintptr_t layer = (uintptr_t)arg;
-//      layer_off(layer);
-//      return 0;
-// }
-//
-// #define MOUSE_BUTTONS_LAYER MY_MAX_LAYER-1
-// #define TURN_LAYER_OFF_TIMEOUT 5000 //milliseconds
-// // we do nothing with respect to the report, we just do our layer shenanigans
-// void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
-//     layer_on(MOUSE_BUTTONS_LAYER);
-//
-//     static deferred_token token = INVALID_DEFERRED_TOKEN;
-//     cancel_deferred_exec(token); // cancel previous schedule
-//
-//     // schedule layer turn-off, passing layer number as argument not to hardcode it on the previous function
-//     token = defer_exec(TURN_LAYER_OFF_TIMEOUT, turn_off, (void *)MOUSE_BUTTONS_LAYER);
-// }
+ 
+ static uint32_t turn_off(uint32_t trigger_time, void *arg) {
+     const uintptr_t layer = (uintptr_t)arg;
+     layer_off(layer);
+     return 0;
+}
+
+#define MOUSE_BUTTONS_LAYER MY_MAX_LAYER-1
+// QMK has issue with mouse keys when the cursor is not moving,
+// so we will use them only while moving the mouse with high sensitivity.
+#define TURN_LAYER_OFF_TIMEOUT 300 //milliseconds
+// ps2_mouse_moved_user is called only when the keyboard detects mouse movements.  
+void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
+    layer_on(MOUSE_BUTTONS_LAYER);
+
+    static deferred_token token = INVALID_DEFERRED_TOKEN;
+    cancel_deferred_exec(token); // cancel previous schedule
+
+    // schedule layer turn-off, passing layer number as argument not to hardcode it on the previous function
+    token = defer_exec(TURN_LAYER_OFF_TIMEOUT, turn_off, (void *)MOUSE_BUTTONS_LAYER);
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_QUES ,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_SCLN,
+      KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_DQT ,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_SCLN,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_BSPC,                        KC_H,    KC_UP,    KC_J,   KC_K,   KC_L,  KC_COMMA,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -293,7 +305,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
 
     [1] = LAYOUT_split_3x6_3( //numeric
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_0,    KC_1,    KC_2,    KC_3,    KC_4,   KC_QUES,                      KC_PWR, KC_PSCR, KC_DQT, KC_EQL, MY_LESS, KC_SCLN,
+       KC_0,    KC_1,    KC_2,    KC_3,    KC_4,   KC_DQT,                      KC_PWR, KC_PSCR, KC_QUES, KC_EQL, MY_LESS, KC_SCLN,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_5,    KC_6,    KC_7,    KC_8,    KC_9,   KC_BSPC,                      ACCEL,  KC_UP,   KC_PAST, KC_PPLS, KC_SLASH, KC_COMMA,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -307,7 +319,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
          KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,  KC_TAB  ,                     UG_TOGG,  KC_PSCR, KC_MUTE, KC_VOLU, KC_MPLY,  EE_CLR,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_BSPC,                     XXXXXXX,  KC_UP,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_BSPC,                     ACCEL,  KC_UP,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_F11, KC_F12,  KC_RALT, KC_LALT, KC_SPC,  KC_ENTER,            		 KC_LEFT, KC_DOWN, KC_RIGHT, TG(5), TG(4), TG(3),
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
