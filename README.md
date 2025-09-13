@@ -10,7 +10,7 @@
 
 * **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
 
-## User files and changes
+## User files and changes to qmk_firmware
 
 * ### Keymap.c, rules.mk, config.h
 
