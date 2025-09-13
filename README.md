@@ -73,5 +73,5 @@ In ```KDE_Plasma``` folder you can find both monitor overview and keyboard short
 
 * Replace kglobalshortcutsrc in the following path:
 ```
-/home/elil50/.config/kglobalshortcutsrc
+.config/kglobalshortcutsrc
 ```
