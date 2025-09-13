@@ -53,7 +53,7 @@ void ps2_mouse_init_user() {
     // PS2_MOUSE_SEND(0xE2, "ptson: 0xE2"); //enable writing on the Trackpoint
     // PS2_MOUSE_SEND(0x47, "ptson: 0x47"); //enable writing on the Trackpoint
     // PS2_MOUSE_SEND(0x2C, "ptson: 0x2C"); // address
-    // PS2_MOUSE_SEND(0xFF, "ptson: 0xFF"); // value
+    // PS2_MOUSE_SEND(0x00, "ptson: 0x00"); // value
 }
 
 //    %--------------%
