@@ -2,7 +2,7 @@
 
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
-# Executables
+## Executables
 
 * **qmk_file_inject.sh:** inject user files in qmk_firmware
 
@@ -10,7 +10,7 @@
 
 * **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
 
-# User files and changes
+## User files and changes
 
 * ### Keymap.c, rules.mk, config.h
 
@@ -47,12 +47,12 @@ So that it looks like:
                         PAL_RP_PAD_PUE |
 ```
 
-# Hardware
+## Hardware
 
 * 2 Microcontroller: Elite-Pi
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated
 
-# Trackpoint pinout setup
+## Trackpoint pinout setup
 <img src="./Images/Trackpoint.jpg" width="500">
 
 # Desktop Enviroment (KDE Plasma)
