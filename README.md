@@ -55,11 +55,13 @@ So that it looks like:
 ## Trackpoint pinout setup
 <img src="./Images/Trackpoint.jpg" width="500">
 
+---
+
 # Desktop Enviroment (KDE Plasma)
 <img src="./Images/Monitor_overview.png" width=max-width>
 
 
-In ```KDE Plasma``` folder you can find both monitor overview and keyboard shortcuts files.
+In ```KDE_Plasma``` folder you can find both monitor overview and keyboard shortcuts files.
 
 * Replace overview.page in the following path:
 ```
