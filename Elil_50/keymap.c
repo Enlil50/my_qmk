@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 void ps2_mouse_init_user() {
     PS2_MOUSE_SEND(0xE2, "tppress: 0xE2"); //enable writing on the Trackpoint
     PS2_MOUSE_SEND(0x81, "tppress: 0x81"); //enable writing on the Trackpoint
-    PS2_MOUSE_SEND(0x2X, "tppress: 0x2x");
+    PS2_MOUSE_SEND(0x2X, "tppress: 0x2X");
     PS2_MOUSE_SEND(0xFF, "tppress: 0xFF");
 }
 
