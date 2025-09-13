@@ -57,7 +57,7 @@ So that it looks like:
 
 * ### Trackpoint extensor sketch
 In order to vertically extend the trackpoint sensor, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB.
-<img src="./Images/trackpoint_extensor_project.jpg" width="600">
+<img src="./Images/trackpoint_extensor_project.jpg" width="500">
 
 
 <br>
