@@ -14,14 +14,9 @@
 
 * ### Keymap.c, rules.mk, config.h
 
-Add in folder:
+Add the folder ``` Elil_50 ``` in the following path:
 ```
 /home/elil50/Documents/qmk/qmk_firmware/keyboards/crkbd/keymaps
-```
-
-The folder:
-```
-Elil_50
 ```
 
 * ### PS/2 Driver Trackpoint
@@ -29,15 +24,11 @@ Elil_50
 The host needs pull-up resistors on PS/2 DATA and CLK lines. The built-in pullup resistors from the host 4k to 100k are acceptable. 
 So I need to add those pull-up resistors (didn't do it), or apply the following patch:
 
-Add in line 150 of:
+Add in line 150 of file:
 ```
 /home/elil50/Documents/qmk/qmk_firmware/platforms/chibios/drivers/vendor/RP/RP2040/ps2_vendor.c
 ```
-The following line:
-```
-PAL_RP_PAD_PUE |
-```
-So that it looks like:
+The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
 ```c
     // clang-format off
     iomode_t pin_mode = PAL_RP_PAD_IE |
@@ -49,6 +40,8 @@ So that it looks like:
 
 ## Hardware
 
+* 2 PCB: Helidox Corne V3, 6 columns
+* 2 Keyboard 3D printed cases
 * 2 Microcontroller: Elite-Pi
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated
 
@@ -56,7 +49,7 @@ So that it looks like:
 <img src="./Images/Trackpoint_pinout.jpg" width="400">
 
 * ### Trackpoint extensor sketch
-In order to vertically extend the trackpoint sensor, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB.
+In order to vertically extend the trackpoint sensor, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB. It's probably better to print with 3mm instead of 4mm. I increased the diameter of the PCB holes with a drill.
 
 <img src="./Images/trackpoint_extensor_project.jpg" width="400">
 
