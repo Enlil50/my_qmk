@@ -30,41 +30,215 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MY_MAX_LAYER 6
 
+#define MY_UNICODE_ENABLE 0  // manually turn on stuff in rules and config
+
+
+
+//    %----------------------%
+//    | UNICODE OS DETECTION |
+//    %----------------------%
+
+#if MY_UNICODE_ENABLE
+bool process_detected_host_os_kb(os_variant_t detected_os) {
+    if (!process_detected_host_os_user(detected_os)) {
+        return false;
+    }
+    switch (detected_os) {
+        case OS_MACOS:
+            set_unicode_input_mode(UNICODE_MODE_MACOS);
+        case OS_WINDOWS:
+            set_unicode_input_mode(UNICODE_MODE_WINCOMPOSE);
+            break;
+        case OS_IOS:
+            set_unicode_input_mode(UNICODE_MODE_LINUX);
+            break;
+        case OS_LINUX:
+            set_unicode_input_mode(UNICODE_MODE_LINUX);
+            break;
+        case OS_UNSURE:
+            set_unicode_input_mode(UNICODE_MODE_LINUX);
+            break;
+    }
+    
+    return true;
+}
+#endif
+
+
 //    %--------------%
 //    |  TRACKPOINT  |
 //    %--------------%
 
-// Sensitivity: Adress: 0x4A, value: 0 - 255 in hex. Default: 0x59
-// Speed: Adress: 0x60, value: 0 - 255 in hex. Default: 0x61
-// Negative Inertia: Adress: 0x4D, value: 0 - 255 in hex. Default: 0x06
-// ?? Press to select: Adress: 0x2C, value: 0 (disabled) or 1 (enabled) in hex (0x00 or 0xFF)
+// Sensitivity: Adress: 0xE2 0x81 0x4A, value: 0 - 255 in hex. Default: 0x59
+// Speed: Adress: 0xE2 0x81 0x60, value: 0 - 255 in hex. Default: 0x61
+// Negative Inertia: Adress: 0xE2 0x81 0x4D, value: 0 - 255 in hex. Default: 0x06
+// Toggle Press to select: Adress: 0xE2 0x81 0x2C, value: 0x01
+// Threshold Press to select: Adress: 0xE2 0x81 0x5C, value: 0 - 255 in hex. Default: 0x08
 
 void ps2_mouse_init_user() {
-    PS2_MOUSE_SEND(0xE2, "tpspeed: 0xE2"); //enable writing on the Trackpoint
-    PS2_MOUSE_SEND(0x81, "tpspeed: 0x81"); //enable writing on the Trackpoint
+    PS2_MOUSE_SEND(0xE2, "tpspeed: 0xE2"); //address
+    PS2_MOUSE_SEND(0x81, "tpspeed: 0x81"); //address
     PS2_MOUSE_SEND(0x60, "tpspeed: 0x60"); // address
     PS2_MOUSE_SEND(0xFF, "tpspeed: 0xFF"); // value
 
-    PS2_MOUSE_SEND(0xE2, "tpsens: 0xE2"); //enable writing on the Trackpoint
-    PS2_MOUSE_SEND(0x81, "tpsens: 0x81"); //enable writing on the Trackpoint
+    PS2_MOUSE_SEND(0xE2, "tpsens: 0xE2"); //address
+    PS2_MOUSE_SEND(0x81, "tpsens: 0x81"); //address
     PS2_MOUSE_SEND(0x4A, "tpsens: 0x4A"); // address
     PS2_MOUSE_SEND(0xB4, "tpsens: 0xB4"); // value
 
-    // PS2_MOUSE_SEND(0xE2, "ptson: 0xE2"); //enable writing on the Trackpoint
-    // PS2_MOUSE_SEND(0x47, "ptson: 0x47"); //enable writing on the Trackpoint
+    // I tried enabling press to click, but the Z sensitivity is low even when maxed out
+
+    // PS2_MOUSE_SEND(0xE2, "ptson: 0xE2"); //address
+    // PS2_MOUSE_SEND(0x47, "ptson: 0x47"); //address
     // PS2_MOUSE_SEND(0x2C, "ptson: 0x2C"); // address
-    // PS2_MOUSE_SEND(0x00, "ptson: 0x00"); // value
+    // PS2_MOUSE_SEND(0x01, "ptson: 0x01"); // value
+    // PS2_MOUSE_SEND(0xE2, "ptson_thr: 0xE2"); // address
+    // PS2_MOUSE_SEND(0x81, "ptson_thr: 0x81"); //address
+    // PS2_MOUSE_SEND(0x5C, "ptson_thr: 0x5C"); // address
+    // PS2_MOUSE_SEND(0xFF, "ptson_thr: 0xFF"); // value
+    // PS2_MOUSE_SEND(0xE2, "ptson_thr: 0xE2"); // address
+    // PS2_MOUSE_SEND(0x81, "ptson_thr: 0x81"); //address
+    // PS2_MOUSE_SEND(0x58, "ptson_thr: 0x5C"); // address
+    // PS2_MOUSE_SEND(0x00, "ptson_thr: 0xFF"); // value
 }
+
+
+
+//    %-------------%
+//    |   UNICODE   |
+//    %-------------%
+#if MY_UNICODE_ENABLE
+
+enum unicode_name {
+    // greek letters
+    UALPH,
+    UBETA,
+    UGAMM,
+    UDELT,
+    UEPSI,
+    UZETA,
+    UETA,
+    UTHET,
+    UIOTA,
+    UKAPP,
+    ULAMB,
+    UMU,
+    UNU,
+    UXI,
+    UOMIC,
+    UPI,
+    URHO,
+    USIGM,
+    UTAU,
+    UUPSI,
+    UPHI,
+    UCHI,
+    UPSI,
+    UOMEG,
+  
+    LALPH,
+    LBETA,
+    LGAMM,
+    LDELT,
+    LEPSI,
+    LZETA,
+    LETA,
+    LTHET,
+    LIOTA,
+    LKAPP,
+    LLAMB,
+    LMU,
+    LNU,
+    LXI,
+    LOMIC,
+    LPI,
+    LRHO,
+    LSIGM,
+    LTAU,
+    LUPSI,
+    LPHI,
+    LCHI,
+    LPSI,
+    LOMEG,
+  
+    LTEQ,
+    GTEQ,
+    NOTEQ,
+    PLMIN,
+};
+
+
+const uint32_t unicode_map[] PROGMEM = { 
+    // greek letters
+    [UALPH] = 0x0391,
+    [UBETA] = 0x0392,
+    [UGAMM] = 0x0393,
+    [UDELT] = 0x0394,
+    [UEPSI] = 0x0395,
+    [UZETA] = 0x0396,
+    [UETA] = 0x0397,
+    [UTHET] = 0x0398,
+    [UIOTA] = 0x0399,
+    [UKAPP] = 0x039A,
+    [ULAMB] = 0x039B,
+    [UMU] = 0x039C,
+    [UNU] = 0x039D,
+    [UXI] = 0x039E,
+    [UOMIC] = 0x039F,
+    [UPI] = 0x03A0,
+    [URHO] = 0x03A1,
+    [USIGM] = 0x03A3,
+    [UTAU] = 0x03A4,
+    [UUPSI] = 0x03A5,
+    [UPHI] = 0x03A6,
+    [UCHI] = 0x03A7,
+    [UPSI] = 0x03A8,
+    [UOMEG] = 0x03A9,
+
+    [LALPH] = 0x03B1,
+    [LBETA] = 0x03B2,
+    [LGAMM] = 0x03B3,
+    [LDELT] = 0x03B4,
+    [LEPSI] = 0x03B5,
+    [LZETA] = 0x03B6,
+    [LETA] = 0x03B7,
+    [LTHET] = 0x03B8,
+    [LIOTA] = 0x03B9,
+    [LKAPP] = 0x03BA,
+    [LLAMB] = 0x03BB,
+    [LMU] = 0x03BC,
+    [LNU] = 0x03BD,
+    [LXI] = 0x03BE,
+    [LOMIC] = 0x03BF,
+    [LPI] = 0x03C0,
+    [LRHO] = 0x03C1,
+    [LSIGM] = 0x03C3,
+    [LTAU] = 0x03C4,
+    [LUPSI] = 0x03C5,
+    [LPHI] = 0x03C6,
+    [LCHI] = 0x03C7,
+    [LPSI] = 0x03C8,
+    [LOMEG] = 0x03C9,
+  
+    // other
+    [LTEQ] = 0x2264, // less than or equal
+    [GTEQ] = 0x2265, // greater than or equal
+    [NOTEQ] = 0x2260, // not equal
+    [PLMIN] = 0xB1, // plus minus
+};
+#endif
+
 
 //    %--------------%
 //    |   NEW KEYS   |
 //    %--------------%
 
-enum{ //tap dance enum needs to be separate from new keys enum
+enum tap_dance_keys { //tap dance enum needs to be separate from new keys enum
     TD_SHIFT_CAPS,
     META_TO6,
 };
-enum{
+
+enum new_keys {
     ACCEL = SAFE_RANGE,
 };
 
@@ -98,7 +272,12 @@ const key_override_t override_23 = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL
 const key_override_t override_24 = ko_make_basic(MOD_MASK_SHIFT, KC_AMPR, KC_AT);
 const key_override_t override_25 = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXLM);
 const key_override_t override_26 = ko_make_basic(MOD_MASK_SHIFT, KC_DLR, KC_HASH);
-
+#if MY_UNICODE_ENABLE
+const key_override_t override_27 = ko_make_basic(MOD_MASK_ALT, MY_LESS, UM(LTEQ));
+const key_override_t override_28 = ko_make_basic(MOD_MASK_SA, MY_LESS, UM(GTEQ));
+const key_override_t override_29 = ko_make_basic(MOD_MASK_ALT, KC_EQL, UM(NOTEQ));
+const key_override_t override_30 = ko_make_basic(MOD_MASK_ALT, KC_PPLS, UM(PLMIN));
+#endif
 
 const key_override_t *key_overrides[] = {
   &override_1,
@@ -119,6 +298,12 @@ const key_override_t *key_overrides[] = {
   &override_24,
   &override_25,
   &override_26,
+  #if MY_UNICODE_ENABLE
+  &override_27,
+  &override_28,
+  &override_29,
+  &override_30,
+  #endif
   NULL
 };
 
@@ -131,7 +316,7 @@ const key_override_t *key_overrides[] = {
 const uint16_t PROGMEM combo2[] = {TD(TD_SHIFT_CAPS), KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo4[] = {TD(TD_SHIFT_CAPS), KC_EQL, COMBO_END};
 const uint16_t PROGMEM combo7[] = {TD(TD_SHIFT_CAPS), KC_DQT, COMBO_END};
-const uint16_t PROGMEM combo8[] = {KC_LALT, KC_DQT, COMBO_END};
+const uint16_t PROGMEM combo8[] = {ESC_ALT, KC_DQT, COMBO_END};
 const uint16_t PROGMEM combo9[] = {TD(TD_SHIFT_CAPS), KC_LT, COMBO_END};
 const uint16_t PROGMEM combo10[] = {TD(TD_SHIFT_CAPS), KC_PAST, COMBO_END};
 const uint16_t PROGMEM combo11[] = {TD(TD_SHIFT_CAPS), KC_VOLU, COMBO_END};
@@ -148,6 +333,12 @@ const uint16_t PROGMEM combo32[] = {TD(TD_SHIFT_CAPS), KC_BSPC, COMBO_END};
 const uint16_t PROGMEM combo33[] = {TD(TD_SHIFT_CAPS), KC_AMPR, COMBO_END};
 const uint16_t PROGMEM combo34[] = {TD(TD_SHIFT_CAPS), KC_QUES, COMBO_END};
 const uint16_t PROGMEM combo35[] = {TD(TD_SHIFT_CAPS), KC_DLR, COMBO_END};
+#if MY_UNICODE_ENABLE
+const uint16_t PROGMEM combo36[] = {ESC_ALT, MY_LESS, COMBO_END};
+const uint16_t PROGMEM combo37[] = {ESC_ALT, KC_EQL, COMBO_END};
+const uint16_t PROGMEM combo38[] = {ESC_ALT, KC_PPLS, COMBO_END};
+const uint16_t PROGMEM combo39[] = {TD(TD_SHIFT_CAPS), ESC_ALT, MY_LESS, COMBO_END};
+#endif 
 
 combo_t key_combos[] = {
   COMBO(combo2, KC_DOT),
@@ -170,7 +361,12 @@ combo_t key_combos[] = {
   COMBO(combo33, KC_AT),
   COMBO(combo34, KC_EXLM),
   COMBO(combo35, KC_HASH),
-
+  #if MY_UNICODE_ENABLE
+  COMBO(combo36, UM(LTEQ)),
+  COMBO(combo37, UM(NOTEQ)),
+  COMBO(combo38, UM(PLMIN)),
+  COMBO(combo39, UM(GTEQ)),
+  #endif
 };
 
 
