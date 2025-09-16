@@ -38,11 +38,13 @@ Instead of remapping softwares and videogames, additional layers can be added in
 
 ## User files and changes to qmk_firmware
 
-* **qmk_file_inject.sh:** inject user files in qmk_firmware
+* ### Executables
 
-* **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
+**qmk_file_inject.sh:** inject user files in qmk_firmware
 
-* **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder)
+**flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
+
+**commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder)
 
 * ### Keymap.c, rules.mk, config.h
 
