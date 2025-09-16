@@ -23,7 +23,7 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
 
-Instead of remapping softwares and videogames, additional layers can be added in keymap.c after layer 3 (follow my comments) with the syntax documented by QMK developers.
+Instead of remapping softwares and videogames, additional layers can be added in keymap.c after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
 
 ## User files and changes to qmk_firmware
 
