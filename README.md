@@ -80,11 +80,13 @@ The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
 <br>
 
 # :two: Keyboard Hardware
+The main components are:
 
 * 2 PCB: Helidox Corne V3, 6 columns
-* 2 Keyboard 3D printed cases
 * 2 Microcontroller: Elite-Pi
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated
+
+There are tons of sites who sell DIY kits and pre-builts: each one has their own well-documented and similar guide on little details I won't write here. Nowadays even aliexpress sells low cost pre-builts, but be aware they are not easily flashable.
 
 ## External shell
 <img src="./Images/portable_config.jpg" width="400">
