@@ -27,10 +27,10 @@ This is the solution I found and I'm learning touch typing for the first time in
 # :one: Keyboard firmware
 This layout was optimized for coding and typing purposes.
 
-The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in rules.mk. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of keymap.c.<br/>
+The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in ```./Elil_50/rules.mk```. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of ```./Elil_50/keymap.c```.<br/>
 This option will not affect any other functionality.
 
-Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.<br/>
+Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in ```./Elil_50/rules.mk```.<br/>
 This option will not affect any other functionality.
 
 Unicode support depends on both OS and software used: most recent Linux and Mac OS do support it by default, but you need to install Wincompose for Windows (another reason to avoid it).<br/> 
@@ -41,7 +41,7 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
 
-Instead of remapping softwares and videogames, additional layers can be added in keymap.c after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
+Instead of remapping softwares and videogames, additional layers can be added in ```./Elil_50/keymap.c``` after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
 
 ## User files and changes to qmk_firmware
 
@@ -116,7 +116,7 @@ In order to raise the trackpoint keycap, I 3D printed the following sketch, cut 
 
 In ```KDE_Plasma``` folder you can find both monitor overview and keyboard shortcuts files. This is totally optional and it's more related to my typing experience than the keyboard.
 
-* Replace overview.page in the following path:
+* Replace ```./KDE_Plasma/overview.page``` in the following path:
 ```
 .local/share/plasma-systemmonitor/overview.page
 ```
