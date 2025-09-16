@@ -3,8 +3,8 @@
 
 This project is subdivided as it follows:
 1. An explaination of my custom firmware, written for the 6 columns [Corne keyboard V3](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), based on [QMK](https://github.com/qmk/qmk_firmware/) framework.
-2. My hardware customization: from printable files for the case, to mounting the trackpoint.
-3. My desktop enviroment shortcuts.
+2. My hardware customization: from printable files for the case, to mounting the trackpoint (optional).
+3. My desktop enviroment shortcuts (optional).
 
 # Just a keyboard for show?
 <img src="./Images/Keyboard_horizontal_open.jpg" width=max-width>
