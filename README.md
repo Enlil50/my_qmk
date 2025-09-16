@@ -11,6 +11,8 @@
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
 ## Keyboard layout
+This layout was optimized for coding and typing purposes.
+
 Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.
 
 Unicode support depends on both OS and software used: most recent Linux and Mac OS do support it by default, but you need to install Wincompose for Windows (another reason to avoid it).<br/> 
@@ -20,6 +22,8 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/2.jpg" width=max-width>
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
+
+Instead of remapping softwares and videogames, additional layers can be added in keymap.c after layer 3 (follow my comments) with the syntax documented by QMK developers.
 
 ## User files and changes to qmk_firmware
 
