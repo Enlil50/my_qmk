@@ -121,7 +121,7 @@ In ```KDE_Plasma``` folder you can find both monitor overview and keyboard short
 .local/share/plasma-systemmonitor/overview.page
 ```
 
-* Replace kglobalshortcutsrc in the following path:
+* Replace ```./KDE_Plasma/kglobalshortcutsrc``` in the following path:
 ```
 .config/kglobalshortcutsrc
 ```
