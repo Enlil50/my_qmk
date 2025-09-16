@@ -8,7 +8,7 @@ This project is subdivided as it follows:
 
 # Just a keyboard for show?
 I coded, but I my hands feel lost in big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance to the keyboard.<br/>
-I coded, but my desk is comically high and I had the habit of pressing my wrists on its edges: my knuckles were literally bleeding for months due to circulation issues. I tried finding a comically high chair, but my knees started to ache; I bought a footrest, but it didn't solve anything.
+I coded, but my desk is comically high and I had the habit of pressing my wrists on its edges: my knuckles literally bled for months due to circulation issues. I tried finding a comically high chair, but my knees started to ache; I bought a footrest, but it didn't solve anything.
 
 Then I dug into the ergonomic keyboard rabbit hole and found split keyboards.
 
