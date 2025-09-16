@@ -13,11 +13,11 @@ I coded, but my desk is comically high and I had the habit of pressing my wrists
 Then I dug into the ergonomic keyboard rabbit hole and found split keyboards.
 
 I needed a keyboard with just the right amount of keys: too small and it would reduce the typing speed, too big and I would lose myself on it.<br/>
+I needed a split keyboard in order to attach its two sides to the chair and type independently from the height of the desk.<br/>
 I needed a firmware to customize it at my heart content.<br/>
-I needed a pointing device on the keyboard to replace a standalone mouse.<br/>
-I wanted to attach it to a chair in order to be desk-height independent.
+I needed a pointing device on the keyboard to replace a standalone mouse.
 
-This is the solution I found and I'm learning touch typing for the first time with it.
+This is the solution I found and I'm learning touch typing for the first time in my life.
 
 
 # :one: Keyboard firmware
