@@ -22,14 +22,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MASTER_LEFT
 
-#define PS2_PIO_USE_PIO1
-#define PS2_CLOCK_PIN B5
-#define PS2_DATA_PIN B4
-
 #define MK_3_SPEED
 #define TAPPING_TOGGLE 1
 #define MK_W_OFFSET_0 2
 #define MK_W_OFFSET_1 15
+
+#if MY_TRACKPOINT_ENABLE
+    #define PS2_PIO_USE_PIO1
+    #define PS2_CLOCK_PIN B5
+    #define PS2_DATA_PIN B4
+#endif
 
 #if MY_UNICODE_ENABLE
     #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX, UNICODE_MODE_MACOS, UNICODE_MODE_WINCOMPOSE

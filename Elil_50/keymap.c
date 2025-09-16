@@ -17,8 +17,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include "ps2_mouse.h"
-#include "ps2.h"
+
+#if MY_TRACKPOINT_ENABLE
+    #include "ps2_mouse.h"
+    #include "ps2.h"
+#endif
 
 #define MY_LESS S(KC_COMM)
 #define MY_GREAT S(KC_DOT)
@@ -26,8 +29,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RIGHT_TOGGLE LT(1, KC_NO)
 #define ESC_ALT MT(MOD_LALT, KC_ESC)
 
-// #define MY_UNICODE_ENABLE 1  // it's in config
-#define MY_MAX_LAYER 7
+// #define MY_UNICODE_ENABLE 1  // it's in rules.mk
+// #define MY_TRACKPOINT_ENABLE 1  // it's in rules.mk
+
+#define MY_MAX_LAYER 7 
+// if you disable the trackpoint, I automatically remove the
+// mouse layer (you won't need it): reduce MY_MAX_LAYER by 1.
+// It all becomes clear if you take a glance at the end of this file.  
 
 
 
@@ -72,6 +80,7 @@ bool process_detected_host_os_kb(os_variant_t detected_os) {
 // Toggle Press to select: Adress: 0xE2 0x81 0x2C, value: 0x01
 // Threshold Press to select: Adress: 0xE2 0x81 0x5C, value: 0 - 255 in hex. Default: 0x08
 
+#if MY_TRACKPOINT_ENABLE
 void ps2_mouse_init_user() {
     PS2_MOUSE_SEND(0xE2, "tpspeed: 0xE2"); //address
     PS2_MOUSE_SEND(0x81, "tpspeed: 0x81"); //address
@@ -98,6 +107,7 @@ void ps2_mouse_init_user() {
     // PS2_MOUSE_SEND(0x58, "ptson_thr: 0x5C"); // address
     // PS2_MOUSE_SEND(0x00, "ptson_thr: 0xFF"); // value
 }
+# endif
 
 
 
@@ -493,8 +503,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //    |  AUTOMATIC MOUSE LAYER  |
 //    %-------------------------%
 
- 
- static uint32_t turn_off(uint32_t trigger_time, void *arg) {
+#if MY_TRACKPOINT_ENABLE
+static uint32_t turn_off(uint32_t trigger_time, void *arg) {
      const uintptr_t layer = (uintptr_t)arg;
      layer_off(layer);
      return 0;
@@ -514,7 +524,7 @@ void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
     // schedule layer turn-off, passing layer number as argument not to hardcode it on the previous function
     token = defer_exec(TURN_LAYER_OFF_TIMEOUT, turn_off, (void *)MOUSE_BUTTONS_LAYER);
 }
-
+# endif
 
 
 //    %---------------------%
@@ -616,8 +626,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ------------------------------ ADD ADDITIONAL LAYERS ONLY BEFORE THESE LAYERS, for hyerarchy purposes ------------------------------
 
 
-
-  [MY_MAX_LAYER-1] = LAYOUT_split_3x6_3( // mouse transparent layer
+   #if MY_TRACKPOINT_ENABLE
+    [MY_MAX_LAYER-1] = LAYOUT_split_3x6_3( // mouse transparent layer
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                      KC_TRNS, MS_BTN1, MS_BTN3, MS_BTN2, KC_TRNS, KC_TRNS,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -628,6 +638,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                              KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS
                                         //`--------------------------'  `--------------------------'
   ),
+  #endif
 
 
 

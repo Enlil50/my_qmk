@@ -27,6 +27,8 @@ This is the solution I found and I'm learning touch typing for the first time in
 # :one: Keyboard firmware
 This layout was optimized for coding and typing purposes.
 
+The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in rules.mk. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of keymap.c. This option will not affect any other functionality.
+
 Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.
 
 Unicode support depends on both OS and software used: most recent Linux and Mac OS do support it by default, but you need to install Wincompose for Windows (another reason to avoid it).<br/> 
@@ -56,7 +58,7 @@ Add the folder ``` Elil_50 ``` in the following path:
 ./qmk_firmware/keyboards/crkbd/keymaps
 ```
 
-* ### PS/2 Driver Trackpoint
+* ### PS/2 Driver Trackpoint (optional)
 
 The host needs pull-up resistors on PS/2 DATA and CLK lines. The built-in pullup resistors from the host 4k to 100k are acceptable. 
 So I need to add those pull-up resistors (didn't do it), or apply the following patch:
@@ -84,7 +86,7 @@ The main components are:
 
 * 2 PCB: Helidox Corne V3, 6 columns
 * 2 Microcontroller: Elite-Pi
-* 1 Trackpoint: SK8707-01-002(3.3V) Integrated
+* 1 Trackpoint: SK8707-01-002(3.3V) Integrated (optional)
 
 There are tons of sites who sell DIY kits and pre-builts: each one has their own well-documented and similar guide on little details I won't write here. Nowadays even aliexpress sells low cost pre-builts, but be aware they are not easily flashable.
 
@@ -93,10 +95,10 @@ There are tons of sites who sell DIY kits and pre-builts: each one has their own
 
 I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-case-5-and-6-columns) and designed the interlocking "case wall" depicted above for portability purposes. Note that you don't need to unplug the TRRS cable from the keyboard (the less mechanical stress, the longer the life span). You can find its file in ```./stl_files/eiga-wall-Elil50.stl```.
 
-## Trackpoint pinout setup
+## Trackpoint pinout setup (optional)
 <img src="./Images/Trackpoint_pinout.jpg" width="400">
 
-## Trackpoint extensor sketch
+## Trackpoint extensor sketch (optional)
 In order to raise the trackpoint keycap, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB. It's probably better to print with 3mm instead of 4mm. I increased the diameter of the PCB holes with a drill.
 
 <img src="./Images/trackpoint_extensor_project.jpg" width="400">
@@ -110,7 +112,7 @@ In order to raise the trackpoint keycap, I 3D printed the following sketch, cut 
 <img src="./Images/Monitor_overview.png" width=max-width>
 
 
-In ```KDE_Plasma``` folder you can find both monitor overview and keyboard shortcuts files.
+In ```KDE_Plasma``` folder you can find both monitor overview and keyboard shortcuts files. This is totally optional and it's more related to my typing experience than the keyboard.
 
 * Replace overview.page in the following path:
 ```
