@@ -13,8 +13,8 @@ I coded, but my desk is comically high and I had the habit of pressing my wrists
 That's when I went down the ergonomic keyboard rabbit hole and discovered split keyboards.
 
 I needed to mount it to my chair to stop worrying about the desk height.<br/>
-I needed a split design to easily sit and stand, without moving a big rectangular slab over my legs.<br/>
 I needed just the right amount of keys: too few and it would reduce the typing speed, too many and I would lose my hands on it.<br/>
+I needed a split design to easily sit and stand, without moving a big rectangular slab over my legs.<br/>
 I needed a firmware to customize it at my heart content.<br/>
 I needed a built-in pointing device to replace a standalone mouse.
 
