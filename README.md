@@ -11,7 +11,8 @@
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
 ## Keyboard layout
-Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.<br/>
+Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.
+
 Unicode support depends on both OS and software used: most recent Linux and Mac OS do support it by default, but you need to install Wincompose for Windows (another reason to avoid it).<br/> 
 The keymap I wrote does an automatic OS detection to use the right unicode input method.
 
