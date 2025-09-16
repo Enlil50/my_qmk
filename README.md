@@ -1,4 +1,4 @@
-# Elil_50 Corne keyboard QMK firmware implementation
+# Elil_50 Corne keyboard QMK firmware
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
 This project is subdivided as it follows:
