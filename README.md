@@ -3,7 +3,7 @@
 
 This project is subdivided as it follows:
 1. An explaination of my custom firmware, written for the 6 columns [Corne keyboard V3](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), based on [QMK](https://github.com/qmk/qmk_firmware/) framework.
-2. My hardware customization, from printable files for the case, to mounting the trackpoint.
+2. My hardware customization: from printable files for the case, to mounting the trackpoint.
 3. My desktop enviroment shortcuts.
 
 # Just a keyboard for show?
@@ -30,7 +30,8 @@ This layout was optimized for coding and typing purposes.
 The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in rules.mk. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of keymap.c.<br/>
 This option will not affect any other functionality.
 
-Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.
+Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.<br/>
+This option will not affect any other functionality.
 
 Unicode support depends on both OS and software used: most recent Linux and Mac OS do support it by default, but you need to install Wincompose for Windows (another reason to avoid it).<br/> 
 The keymap I wrote does an automatic OS detection to use the right unicode input method.
