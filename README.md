@@ -7,15 +7,16 @@ This project is subdivided as it follows:
 3. My desktop enviroment shortcuts.
 
 # Just a keyboard for show?
-I coded, but I my hands feel lost in big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance to the keyboard.<br/>
-I coded, but my desk is comically high and I had the habit of pressing my wrists on its edges: my knuckles literally bled for months due to circulation issues. I tried finding a comically high chair, but my knees started to ache; I bought a footrest, but it didn't solve anything.
+I coded, but my hands always feel lost on big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance at the keyboard.<br/>
+I coded, but my desk is comically high and I had the habit of pressing my wrists against its edges: my knuckles literally bled for months due to circulation issues. I tried using a comically high chair, but then it was my knees' turn to ache. I bought a footrest, but it didn't change anything.
 
-Then I dug into the ergonomic keyboard rabbit hole and found split keyboards.
+That's when I went down the ergonomic keyboard rabbit hole and discovered split keyboards.
 
 I needed a keyboard with just the right amount of keys: too small and it would reduce the typing speed, too big and I would lose myself on it.<br/>
-I needed a split keyboard in order to attach its two sides to the chair and type independently from the height of the desk.<br/>
+I needed to mount it to my chair to stop worrying about the desk height.<br/>
+I needed a split design to easily sit and stand, without moving a big rectangular slab over my legs.<br/>
 I needed a firmware to customize it at my heart content.<br/>
-I needed a pointing device on the keyboard to replace a standalone mouse.
+I needed a built-in pointing device to replace a standalone mouse.
 
 This is the solution I found and I'm learning touch typing for the first time in my life.
 
