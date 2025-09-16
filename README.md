@@ -1,8 +1,8 @@
+A custom firmware written for the 6 columns [Corne keyboard](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), and based on [QMK](https://github.com/qmk/qmk_firmware/) firmware framework.
+
 # :one: Keyboard
 
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
-
-A custom firmware written for the 6 columns [Corne keyboard](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), and based on [QMK](https://github.com/qmk/qmk_firmware/) firmware framework.
 
 ## Just a keyboard for show?
 I coded, but I lose my hands in big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance to the keyboard.<br/>
