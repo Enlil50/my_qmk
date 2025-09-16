@@ -22,15 +22,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MY_LESS S(KC_COMM)
 #define MY_GREAT S(KC_DOT)
-
 #define LEFT_TOGGLE LT(1, KC_Q)
 #define RIGHT_TOGGLE LT(1, KC_NO)
-
 #define ESC_ALT MT(MOD_LALT, KC_ESC)
 
-#define MY_MAX_LAYER 6
-
-#define MY_UNICODE_ENABLE 0  // manually turn on stuff in rules and config
+// #define MY_UNICODE_ENABLE 1  // it's in config
+#define MY_MAX_LAYER 7
 
 
 
@@ -160,11 +157,13 @@ enum unicode_name {
     LCHI,
     LPSI,
     LOMEG,
+    FSIGM,
   
     LTEQ,
     GTEQ,
     NOTEQ,
     PLMIN,
+    FORALL,
 };
 
 
@@ -219,14 +218,44 @@ const uint32_t unicode_map[] PROGMEM = {
     [LCHI] = 0x03C7,
     [LPSI] = 0x03C8,
     [LOMEG] = 0x03C9,
+
+    [FSIGM] = 0x03C2,
   
     // other
     [LTEQ] = 0x2264, // less than or equal
     [GTEQ] = 0x2265, // greater than or equal
     [NOTEQ] = 0x2260, // not equal
     [PLMIN] = 0xB1, // plus minus
+    [FORALL] = 0x2200, // plus minus
 };
+
+#define ALPH UP(LALPH,UALPH)
+#define BETA UP(LBETA,UBETA)
+#define GAMM UP(LGAMM,UGAMM)
+#define DELT UP(LDELT,UDELT)
+#define EPSI UP(LEPSI,UEPSI)
+#define ZETA UP(LZETA,UZETA)
+#define ETA UP(LETA,UETA)
+#define THET UP(LTHET,UTHET)
+#define IOTA UP(LIOTA,UIOTA)
+#define KAPP UP(LKAPP,UKAPP)
+#define LAMB UP(LLAMB,ULAMB)
+#define MU UP(LMU,UMU)
+#define NU UP(LNU,UNU)
+#define XI UP(LXI,UXI)
+#define OMIC UP(LOMIC,UOMIC)
+#define PI UP(LPI,UPI)
+#define RHO UP(LRHO,URHO)
+#define SIGM UP(LSIGM,USIGM)
+#define TAU UP(LTAU,UTAU)
+#define UPSIL UP(LUPSI,UUSPI)
+#define PHI UP(LPHI,UPHI)
+#define CHI UP(LCHI,UCHI)
+#define PSI UP(LPSI,UPSI)
+#define OMEG UP(LOMEG,UOMEG)
+
 #endif
+
 
 
 //    %--------------%
@@ -254,6 +283,39 @@ tap_dance_action_t tap_dance_actions[] = {
 //    |   OVERRIDES   |
 //    %---------------%
 
+#if MY_UNICODE_ENABLE
+static bool send_unicode(bool activated, void *context) {
+    if (activated) {
+        uint32_t code = (uintptr_t)context;  // store UM(x) as integer in context
+        register_unicodemap(unicodemap_index(code));
+    }
+    return false;
+}
+
+#define MAKE_OVERRIDE(mods, trig, action, ctx) \
+(const key_override_t){ \
+    .trigger_mods = mods, \
+    .layers = ~0, \
+    .suppressed_mods = mods, \
+    .options = ko_options_default, \
+    .negative_mod_mask = 0, \
+    .custom_action = action, \
+    .context = (void*)(uintptr_t)(ctx), \
+    .trigger = trig, \
+    .replacement = KC_NO, \
+    .enabled = NULL, \
+}
+
+#define MAKE_UNICODE_OVERRIDE(mods, trig, unicode) \
+    MAKE_OVERRIDE(mods, trig, send_unicode, (unicode))
+
+const key_override_t my_overrides_1 = MAKE_UNICODE_OVERRIDE(MOD_MASK_ALT, MY_LESS, UM(LTEQ));
+const key_override_t my_overrides_2 = MAKE_UNICODE_OVERRIDE(MOD_MASK_SA, MY_LESS, UM(GTEQ));
+const key_override_t my_overrides_3 = MAKE_UNICODE_OVERRIDE(MOD_MASK_ALT, KC_EQL, UM(NOTEQ));
+const key_override_t my_overrides_4 = MAKE_UNICODE_OVERRIDE(MOD_MASK_ALT, KC_PPLS, UM(PLMIN));
+const key_override_t my_overrides_5 = MAKE_UNICODE_OVERRIDE(MOD_MASK_ALT, KC_BSLS, UM(FORALL));
+#endif
+
 const key_override_t override_1 = ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_RPRN);
 const key_override_t override_2 = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC);
 const key_override_t override_3 = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR);
@@ -272,12 +334,6 @@ const key_override_t override_23 = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL
 const key_override_t override_24 = ko_make_basic(MOD_MASK_SHIFT, KC_AMPR, KC_AT);
 const key_override_t override_25 = ko_make_basic(MOD_MASK_SHIFT, KC_QUES, KC_EXLM);
 const key_override_t override_26 = ko_make_basic(MOD_MASK_SHIFT, KC_DLR, KC_HASH);
-#if MY_UNICODE_ENABLE
-const key_override_t override_27 = ko_make_basic(MOD_MASK_ALT, MY_LESS, UM(LTEQ));
-const key_override_t override_28 = ko_make_basic(MOD_MASK_SA, MY_LESS, UM(GTEQ));
-const key_override_t override_29 = ko_make_basic(MOD_MASK_ALT, KC_EQL, UM(NOTEQ));
-const key_override_t override_30 = ko_make_basic(MOD_MASK_ALT, KC_PPLS, UM(PLMIN));
-#endif
 
 const key_override_t *key_overrides[] = {
   &override_1,
@@ -299,10 +355,11 @@ const key_override_t *key_overrides[] = {
   &override_25,
   &override_26,
   #if MY_UNICODE_ENABLE
-  &override_27,
-  &override_28,
-  &override_29,
-  &override_30,
+  &my_overrides_1,
+  &my_overrides_2,
+  &my_overrides_3,
+  &my_overrides_4,
+  &my_overrides_5,
   #endif
   NULL
 };
@@ -337,6 +394,7 @@ const uint16_t PROGMEM combo35[] = {TD(TD_SHIFT_CAPS), KC_DLR, COMBO_END};
 const uint16_t PROGMEM combo36[] = {ESC_ALT, MY_LESS, COMBO_END};
 const uint16_t PROGMEM combo37[] = {ESC_ALT, KC_EQL, COMBO_END};
 const uint16_t PROGMEM combo38[] = {ESC_ALT, KC_PPLS, COMBO_END};
+const uint16_t PROGMEM combo40[] = {ESC_ALT, KC_BSLS, COMBO_END};
 const uint16_t PROGMEM combo39[] = {TD(TD_SHIFT_CAPS), ESC_ALT, MY_LESS, COMBO_END};
 #endif 
 
@@ -365,38 +423,10 @@ combo_t key_combos[] = {
   COMBO(combo36, UM(LTEQ)),
   COMBO(combo37, UM(NOTEQ)),
   COMBO(combo38, UM(PLMIN)),
+  COMBO(combo40, UM(FORALL)),
   COMBO(combo39, UM(GTEQ)),
   #endif
 };
-
-
-//saving general syntax for pressing and holding key
-/*
-if (record->event.pressed) {
-        if (record->tap.count) {
-            //default_layer_set(1 << 0);
-            layer_off(1);
-        } else {
-            //register_mods(MOD_BIT(KC_LSFT));
-            layer_off(1);
-        }
-    } else {
-        if (!record->tap.count) {
-            //unregister_mods(MOD_BIT(KC_LSFT));
-            layer_on(1);
-        }
-    }
-    return false;
-    break;
-*/
-/*
-if (record->tap.count && record->event.pressed) {
-	//default_layer_set(1 << 1);
-	layer_on(1);
-	return false;
-}
-break;
-*/
 
 
 
@@ -485,8 +515,22 @@ void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
     token = defer_exec(TURN_LAYER_OFF_TIMEOUT, turn_off, (void *)MOUSE_BUTTONS_LAYER);
 }
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
-    [0] = LAYOUT_split_3x6_3(
+
+
+//    %---------------------%
+//    |   KEYBOARD LAYERS   |
+//    %---------------------%
+
+#if MY_UNICODE_ENABLE 
+    #define GREEK_LAYER TG(3)
+    #define ADD_LAYER 4
+#else 
+    #define GREEK_LAYER XXXXXXX
+    #define ADD_LAYER 3
+#endif
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = LAYOUT_split_3x6_3( //alphabetic
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_DQT ,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_SCLN,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -511,17 +555,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
                                       //`--------------------------'  `--------------------------'
   ),
 
-     [2] = LAYOUT_split_3x6_3( //stuff
+    [2] = LAYOUT_split_3x6_3( //stuff
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
          KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,  KC_TAB  ,                     UG_TOGG,  KC_PSCR, KC_MUTE, KC_VOLU, KC_MPLY,  EE_CLR,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_BSPC,                     ACCEL,  KC_UP,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_BSPC,                    ACCEL,  KC_UP, GREEK_LAYER, XXXXXXX,XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_F11, KC_F12,  KC_RALT, KC_LALT, KC_SPC,  KC_ENTER,            		 KC_LEFT, KC_DOWN, KC_RIGHT, TG(5), TG(4), TG(3),
+      KC_F11, KC_F12,  KC_RALT, KC_LALT, KC_SPC,  KC_ENTER,            		   KC_LEFT, KC_DOWN, KC_RIGHT, XXXXXXX, TG(ADD_LAYER+1), TG(ADD_LAYER),
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                   TD(META_TO6),  LEFT_TOGGLE, KC_LCTL, 	TD(TD_SHIFT_CAPS),  RIGHT_TOGGLE,  ESC_ALT
                                         //`--------------------------'  `--------------------------'
   ),
+
+  #if MY_UNICODE_ENABLE
+    [3] = LAYOUT_split_3x6_3( //greek
+    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+        XXXXXXX,   FSIGM,   EPSI,   RHO,   TAU,  KC_DQT  ,                        UPSI,    THET,    IOTA,    OMIC,    PI,    KC_SCLN,
+    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+         ALPH,    SIGM,    DELT,    PHI,     GAMM,  KC_BSPC,                        ETA,     KC_UP,     XI,    KAPP,   LAMB,   KC_COMMA,
+    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+         ZETA,    CHI,     PSI,     OMEG,   KC_SPC,  KC_ENTER,            		  KC_LEFT,  KC_DOWN, KC_RIGHT, BETA,    NU,        MU,
+    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                  TD(META_TO6),  LEFT_TOGGLE, KC_LCTL, 	TD(TD_SHIFT_CAPS),  RIGHT_TOGGLE,  ESC_ALT
+                                        //`--------------------------'  `--------------------------'
+  ),
+  #endif
 
 
 
@@ -529,7 +587,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
 
 
   
-     [3] = LAYOUT_split_3x6_3( //vr_chat
+    [ADD_LAYER] = LAYOUT_split_3x6_3( //vr_chat
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
          KC_F12,  XXXXXXX, KC_E,   KC_W,   KC_R,   KC_C ,                    S(KC_F1), S(KC_F2), S(KC_F3), S(KC_F4), S(KC_F5), S(KC_F6),
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -541,7 +599,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { //alphabetic
                                           //`--------------------------'  `--------------------------'
   ),
 
-  [4] = LAYOUT_split_3x6_3( //minecraft
+    [ADD_LAYER+1] = LAYOUT_split_3x6_3( //minecraft
       //,-----------------------------------------------------.                    ,-----------------------------------------------------.
          KC_M, KC_B, KC_E,  KC_W,   KC_F5,   KC_F1 ,                          KC_1,     KC_2,    KC_3,   KC_4,     KC_5,    KC_6,
       //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
