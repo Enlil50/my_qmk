@@ -63,7 +63,7 @@ Add the folder ``` Elil_50 ``` in the following path:
 * ### PS/2 Driver Trackpoint (optional)
 
 The host needs pull-up resistors on PS/2 DATA and CLK lines. The built-in pullup resistors from the host 4k to 100k are acceptable. 
-So I need to add those pull-up resistors (didn't do it), or apply the following patch:
+So, I need to add those pull-up resistors (didn't do it), or apply the following patch:
 
 Add in line 150 of file:
 ```
@@ -110,7 +110,7 @@ In order to raise the trackpoint keycap, I 3D printed the following sketch, cut 
 
 <br>
 
-# :three: Desktop Enviroment (KDE Plasma)
+# :three: Desktop Enviroment (KDE Plasma) (optional)
 <img src="./Images/Monitor_overview.png" width=max-width>
 
 
