@@ -72,6 +72,8 @@ The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
                         PAL_RP_PAD_PUE |
 ```
 
+---
+
 <br>
 
 # :two: Keyboard Hardware
@@ -88,6 +90,9 @@ The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
 In order to vertically extend the trackpoint sensor, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB. It's probably better to print with 3mm instead of 4mm. I increased the diameter of the PCB holes with a drill.
 
 <img src="./Images/trackpoint_extensor_project.jpg" width="400">
+
+
+---
 
 <br>
 
