@@ -3,7 +3,7 @@
 
 This project is subdivided as it follows:
 1. An explaination of my custom firmware, written for the 6 columns [Corne keyboard V3](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), based on [QMK](https://github.com/qmk/qmk_firmware/) framework.
-2. An explaination on how to mount the trackpoint.
+2. My hardware customization, from case printable files to mounting the trackpoint.
 3. My desktop enviroment shortcuts.
 
 # Just a keyboard for show?
@@ -18,7 +18,8 @@ I needed to mount it to my chair to stop worrying about the desk height.<br/>
 I needed just the right amount of keys: too few and it would reduce the typing speed, too many and I would lose my hands on it.<br/>
 I needed a split design to easily sit and stand, without moving a big rectangular slab over my legs.<br/>
 I needed a firmware to customize it at my heart content.<br/>
-I needed a built-in pointing device to replace a standalone mouse.
+I needed a built-in pointing device to replace a standalone mouse. <br/>
+I needed something portable.
 
 This is the solution I found and I'm learning touch typing for the first time in my life.
 
@@ -84,6 +85,10 @@ The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
 * 2 Keyboard 3D printed cases
 * 2 Microcontroller: Elite-Pi
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated
+
+## External shell
+<img src="./Images/portable_config.jpg" width="400">
+I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-case-5-and-6-columns) and designed the interlocking "case wall" depicted above for portability purposes. Note that you don't need to unplug the TRRS cable from the keyboard (the less mechanical stress, the longer the life span). You can find its file in ```./stl_files/eiga-wall-Elil50.stl```.
 
 ## Trackpoint pinout setup
 <img src="./Images/Trackpoint_pinout.jpg" width="400">
