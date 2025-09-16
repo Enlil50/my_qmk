@@ -19,6 +19,7 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/1.jpg" width=max-width>
 <img src="./Images/2.jpg" width=max-width>
 <img src="./Images/3.jpg" width=max-width>
+<img src="./Images/4.jpg" width=max-width>
 
 ## User files and changes to qmk_firmware
 
