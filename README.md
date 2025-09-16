@@ -1,14 +1,22 @@
-## Executables
-
-* **qmk_file_inject.sh:** inject user files in qmk_firmware
-
-* **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
-
-* **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder) 
-
 # :one: Keyboard
 
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
+
+A custom firmware written for the 6 columns [Corne keyboard](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), and based on [QMK](https://github.com/qmk/qmk_firmware/) firmware framework.
+
+## Just a keyboard for show?
+I coded, but I lose my hands in big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance to the keyboard.<br/>
+I coded, but my desk is comically high and I had the habit of pressing my wrists on its edges: my knuckles were literally bleeding for months due to circulation issues. I tried finding a comically high chair, but my knees started to ache; I bought a footrest, but it didn't solve anything.
+
+Then I dug into the ergonomic keyboard rabbit hole and found split keyboards.
+
+I needed a keyboard with just the right amount of keys: too small and it would reduce the typing speed, too big and I would lose myself on it.<br/>
+I needed a firmware to customize it at my heart content.<br/>
+I needed a pointing device on the keyboard to replace a standalone mouse.<br/>
+I wanted to attach it to a chair in order to be desk-height independent.
+
+This is the solution I found and I'm learning touch typing for the first time with it.
+
 
 ## Keyboard layout
 This layout was optimized for coding and typing purposes.
@@ -26,6 +34,12 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 Instead of remapping softwares and videogames, additional layers can be added in keymap.c after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
 
 ## User files and changes to qmk_firmware
+
+* **qmk_file_inject.sh:** inject user files in qmk_firmware
+
+* **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
+
+* **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder)
 
 * ### Keymap.c, rules.mk, config.h
 
