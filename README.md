@@ -1,10 +1,11 @@
-A custom firmware written for the 6 columns [Corne keyboard](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), and based on [QMK](https://github.com/qmk/qmk_firmware/) firmware framework.
-
-# :one: Keyboard
-
 <img src="./Images/Keyboard_horizontal.jpg" width=max-width>
 
-## Just a keyboard for show?
+This project is subdivided as it follows:
+1. An explaination of my custom firmware, written for the 6 columns [Corne keyboard](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), based on [QMK](https://github.com/qmk/qmk_firmware/) framework.
+2. An explaination on how to mount the trackpoint.
+3. My desktop enviroment shortcuts.
+
+# Just a keyboard for show?
 I coded, but I lose my hands in big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance to the keyboard.<br/>
 I coded, but my desk is comically high and I had the habit of pressing my wrists on its edges: my knuckles were literally bleeding for months due to circulation issues. I tried finding a comically high chair, but my knees started to ache; I bought a footrest, but it didn't solve anything.
 
@@ -18,7 +19,7 @@ I wanted to attach it to a chair in order to be desk-height independent.
 This is the solution I found and I'm learning touch typing for the first time with it.
 
 
-## Keyboard layout
+# :one: Keyboard firmware
 This layout was optimized for coding and typing purposes.
 
 Unicode symbols can be disabled by turning false the flag ```MY_UNICODE_ENABLE``` in rules.mk.
@@ -67,17 +68,17 @@ The line ``` PAL_RP_PAD_PUE | ``` so that it looks like:
                         PAL_RP_PAD_PUE |
 ```
 
-## Hardware
+# :two: Keyboard Hardware
 
 * 2 PCB: Helidox Corne V3, 6 columns
 * 2 Keyboard 3D printed cases
 * 2 Microcontroller: Elite-Pi
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated
 
-* ### Trackpoint pinout setup
+## Trackpoint pinout setup
 <img src="./Images/Trackpoint_pinout.jpg" width="400">
 
-* ### Trackpoint extensor sketch
+## Trackpoint extensor sketch
 In order to vertically extend the trackpoint sensor, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB. It's probably better to print with 3mm instead of 4mm. I increased the diameter of the PCB holes with a drill.
 
 <img src="./Images/trackpoint_extensor_project.jpg" width="400">
@@ -89,7 +90,7 @@ In order to vertically extend the trackpoint sensor, I 3D printed the following 
 
 <br>
 
-# :two: Desktop Enviroment (KDE Plasma)
+# :three: Desktop Enviroment (KDE Plasma)
 <img src="./Images/Monitor_overview.png" width=max-width>
 
 
