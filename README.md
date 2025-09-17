@@ -25,7 +25,9 @@ This is the solution I found and I'm learning touch typing for the first time in
 
 
 # :one: Keyboard firmware
-This layout was optimized for coding and typing purposes.
+When it comes to firmware, there are mainly 2 options: QMK(for wired keyboards) and ZMK(for wireless keyboards). My old laptop has a fried wireless module, so I chose the adaptability of wired over the comfort of wireless.
+
+This layout was optimized for coding and typing purposes. It works only if you set the OS language to english.
 
 The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in ```./Elil_50/rules.mk```. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of ```./Elil_50/keymap.c```.<br/>
 This option will not affect any other functionality.
@@ -137,3 +139,11 @@ In ```KDE_Plasma``` folder you can find both monitor overview and keyboard short
 ## OS Shortcuts
 
 <img src="./Images/0.jpg" width=max-width>
+
+---
+
+<br>
+
+# :star2: Thanks
+
+I thank the whole open source ergonomic mechanical keyboard community for the project they pushed out in the world and QMK developers for their support over their discord server. A special thanks to my friend Luca which helped me mounting and soldering the trackpoint.
