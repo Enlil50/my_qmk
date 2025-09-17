@@ -100,7 +100,7 @@ I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-
 
 
 ## Key Switches and Keycaps
-The world of key switches is really big. The important keywords you need to know are: low-profile(choc), standard profile (MX), tactile, linear, clicky, silent, lubed. I built an MX compatible one for aesthetics (artisanal keycaps are mostly MX) and bought tactile silent switches but forgot to check if they were pre-lubed: they were not and they feel scratchy as hell. I won't complain as I'm not building this keyboard for the mechanical switch pleasure, even though the linear gateron of a friend of mine feel like heaven. 
+The world of key switches is really big. The important keywords you need to know are: low-profile(choc), standard profile (MX), tactile, linear, clicky, silent, lubed. I built an MX compatible one for aesthetics (most artisanal keycaps are cherry (MX)) and bought tactile silent switches. However I forgot to check if they were pre-lubed: they were not and they feel scratchy as hell. I won't complain as I'm not building this keyboard for the mechanical switch pleasure, even though the linear gateron of a friend of mine feel like heaven. 
 
 Keycaps have an equally vast range of options: I'll show some in the image below. I bought DSA profile keycaps from Aliexpress and scratched the home rows with sandpaper (1 minute at most of handwork).
 
