@@ -36,7 +36,7 @@ This option will not affect any other functionality.
 Unicode support depends on both OS and software used: most recent Linux and Mac OS do support it by default, but you need to install Wincompose for Windows (another reason to avoid it).<br/> 
 The keymap I wrote does an automatic OS detection to use the right unicode input method.
 
-<img src="./Images/1.jpg" width=max-width>
+<img src="./Images/1_1.jpg" width=max-width>
 <img src="./Images/2.jpg" width=max-width>
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
