@@ -331,10 +331,9 @@ const key_override_t override_2 = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC
 const key_override_t override_3 = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR);
 const key_override_t override_4 = ko_make_basic(MOD_MASK_SHIFT, KC_COMMA, KC_DOT);
 const key_override_t override_6 = ko_make_basic(MOD_MASK_SHIFT, KC_EQL, KC_TILD);
-const key_override_t override_8 = ko_make_basic(MOD_MASK_SHIFT, KC_DQT, KC_QUOT);
 const key_override_t override_9 = ko_make_basic(MOD_MASK_SHIFT, KC_PAST, KC_CIRC);
 const key_override_t override_10 = ko_make_basic(MOD_MASK_SHIFT, KC_SLASH, KC_PERC);
-const key_override_t override_15 = ko_make_basic(MOD_MASK_ALT, KC_DQT, KC_GRV);
+const key_override_t override_15 = ko_make_basic(MOD_MASK_ALT, KC_QUOTE, KC_GRV);
 const key_override_t override_17 = ko_make_basic(MOD_MASK_SHIFT, KC_LT, KC_GT);
 const key_override_t override_18 = ko_make_basic(MOD_MASK_SHIFT, KC_PPLS, KC_PMNS);;
 const key_override_t override_20 = ko_make_basic(MOD_MASK_SHIFT, KC_SPC, KC_UNDS); 
@@ -351,7 +350,6 @@ const key_override_t *key_overrides[] = {
   &override_3,
   &override_4,
   &override_6,
-  &override_8,
   &override_9,
   &override_10,
   &override_15,
@@ -382,8 +380,8 @@ const key_override_t *key_overrides[] = {
 
 const uint16_t PROGMEM combo2[] = {TD(TD_SHIFT_CAPS), KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo4[] = {TD(TD_SHIFT_CAPS), KC_EQL, COMBO_END};
-const uint16_t PROGMEM combo7[] = {TD(TD_SHIFT_CAPS), KC_DQT, COMBO_END};
-const uint16_t PROGMEM combo8[] = {ESC_ALT, KC_DQT, COMBO_END};
+const uint16_t PROGMEM combo7[] = {TD(TD_SHIFT_CAPS), KC_QUOTE, COMBO_END};
+const uint16_t PROGMEM combo8[] = {ESC_ALT, KC_QUOTE, COMBO_END};
 const uint16_t PROGMEM combo9[] = {TD(TD_SHIFT_CAPS), KC_LT, COMBO_END};
 const uint16_t PROGMEM combo10[] = {TD(TD_SHIFT_CAPS), KC_PAST, COMBO_END};
 const uint16_t PROGMEM combo11[] = {TD(TD_SHIFT_CAPS), KC_VOLU, COMBO_END};
@@ -411,7 +409,7 @@ const uint16_t PROGMEM combo39[] = {TD(TD_SHIFT_CAPS), ESC_ALT, MY_LESS, COMBO_E
 combo_t key_combos[] = {
   COMBO(combo2, KC_DOT),
   COMBO(combo4, KC_TILD),
-  COMBO(combo7, KC_QUOT),
+  COMBO(combo7, KC_DQT),
   COMBO(combo8, KC_GRV),
   COMBO(combo9, KC_GT),
   COMBO(combo10, KC_CIRC),
@@ -542,7 +540,7 @@ void ps2_mouse_moved_user(report_mouse_t *mouse_report) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3( //alphabetic
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_DQT ,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_SCLN,
+      KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,  KC_QUOTE,                        KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_SCLN,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_BSPC,                        KC_H,    KC_UP,    KC_J,   KC_K,   KC_L,  KC_COMMA,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -555,7 +553,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [1] = LAYOUT_split_3x6_3( //numeric
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_0,    KC_1,    KC_2,    KC_3,    KC_4,   KC_DQT,                      KC_PWR, KC_PSCR, KC_QUES, KC_EQL, MY_LESS, KC_SCLN,
+       KC_0,    KC_1,    KC_2,    KC_3,    KC_4,  KC_QUOTE,                      KC_PWR, KC_PSCR, KC_QUES, KC_EQL, MY_LESS, KC_SCLN,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_5,    KC_6,    KC_7,    KC_8,    KC_9,   KC_BSPC,                      ACCEL,  KC_UP,   KC_PAST, KC_PPLS, KC_SLASH, KC_COMMA,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -580,7 +578,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   #if MY_UNICODE_ENABLE
     [3] = LAYOUT_split_3x6_3( //greek
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        XXXXXXX,   FSIGM,   EPSI,   RHO,   TAU,  KC_DQT  ,                        UPSI,    THET,    IOTA,    OMIC,    PI,    KC_SCLN,
+        XXXXXXX,   FSIGM,   EPSI,   RHO,   TAU,  KC_QUOTE  ,                        UPSI,    THET,    IOTA,    OMIC,    PI,    KC_SCLN,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
          ALPH,    SIGM,    DELT,    PHI,     GAMM,  KC_BSPC,                        ETA,     KC_UP,     XI,    KAPP,   LAMB,   KC_COMMA,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|

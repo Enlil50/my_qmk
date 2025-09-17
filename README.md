@@ -3,7 +3,7 @@
 
 This project is subdivided as it follows:
 1. An explaination of my custom firmware, written for the 6 columns [Corne keyboard V3](https://github.com/foostan/crkbd/) (a 42 keys ortholinear split keyboard), based on [QMK](https://github.com/qmk/qmk_firmware/) framework.
-2. My hardware customization: from printable files for the case, to mounting the trackpoint (optional).
+2. My hardware customization: from printable files for the case, to key switches and keycaps, and even mounting tips for the trackpoint (optional).
 3. My desktop enviroment shortcuts (optional).
 
 # Just a keyboard for show?
@@ -17,7 +17,7 @@ That's when I went down the ergonomic keyboard rabbit hole and discovered split 
 I needed to mount it to my chair to stop worrying about the desk height.<br/>
 I needed just the right amount of keys: too few and it would reduce the typing speed, too many and I would lose my hands on it.<br/>
 I needed a split design to easily sit and stand, without moving a big rectangular slab over my legs.<br/>
-I needed a firmware to customize it at my heart content.<br/>
+I needed a firmware to customize it to my heart's content.<br/>
 I needed a built-in pointing device to replace a standalone mouse. <br/>
 I needed something portable.
 
@@ -41,13 +41,13 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
 
-Instead of remapping softwares and videogames, additional layers can be added in ```./Elil_50/keymap.c``` after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
+The main selling point of flashable keyboards is the layout customization, so get comfy with writing in the last part of ```./Elil_50/keymap.c``` and flashing it: it's really easy. Instead of remapping softwares and videogames, additional layers can be added in ```./Elil_50/keymap.c``` after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
 
 ## User files and changes to qmk_firmware
 
 * ### Executables
 
-**qmk_file_inject.sh:** inject user files in qmk_firmware
+**qmk_file_inject.sh:** inject user files (described below) in qmk_firmware
 
 **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
 
@@ -89,13 +89,22 @@ The main components are:
 * 2 PCB: Helidox Corne V3, 6 columns
 * 2 Microcontroller: Elite-Pi
 * 1 Trackpoint: SK8707-01-002(3.3V) Integrated (optional)
+* 42 key switches and keycaps
 
 There are tons of sites who sell DIY kits and pre-builts: each one has their own well-documented and similar guide on little details I won't write here. Nowadays even aliexpress sells low cost pre-builts, but be aware they are not easily flashable.
 
 ## External shell
 <img src="./Images/portable_config.jpg" width="400">
 
-I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-case-5-and-6-columns) and designed the interlocking "case wall" depicted above for portability purposes. Note that you don't need to unplug the TRRS cable from the keyboard (the less mechanical stress, the longer the life span). You can find its file in ```./stl_files/eiga-wall-Elil50.stl```.
+I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-case-5-and-6-columns) and designed the light grey interlocking "case wall" you depicted above for portability purposes. Note that you don't need to unplug the TRRS cable from the keyboard (the less mechanical stress, the longer the life span). You can find its file in ```./stl_files/eiga-wall-Elil50.stl```.
+
+
+## Key Switches and Keycaps
+The world of key switches is even bigger. The important keywords are: low-profile(choc), standard profile (MX), tactile, linear, clicky, silent, lubed. I built an MX compatible one for aesthetics (artisanal keycaps are mostly MX) and bought tactile silent switches but forgot to check if they were pre-lubed: they were not and they feel scratchy as hell. I won't complain as I'm not building this keyboard for the mechanical switch pleasure, even though the linear gateron of a friend of mine feel like heaven. 
+
+Keycaps have an equally vast range of options: I'll show some in the image below. I bought DSA profile keycaps from Aliexpress and scratched the home rows with sandpaper (1 minute at most of handwork).
+
+<img src="./Images/key_switches.jpg" width="400">
 
 ## Trackpoint pinout setup (optional)
 <img src="./Images/Trackpoint_pinout.jpg" width="400">
@@ -104,7 +113,6 @@ I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-
 In order to raise the trackpoint keycap, I 3D printed the following sketch, cut the excess height and manually reduced the diameter of the part which goes inside the PCB. It's probably better to print with 3mm instead of 4mm. I increased the diameter of the PCB holes with a drill.
 
 <img src="./Images/trackpoint_extensor_project.jpg" width="400">
-
 
 ---
 
