@@ -146,4 +146,4 @@ In ```KDE_Plasma``` folder you can find both monitor overview and keyboard short
 
 # :star2: Thanks
 
-I thank the whole open source ergonomic mechanical keyboard community for the project they pushed out in the world and QMK developers for their support over their discord server. A special thanks to my friend Luca which helped me mounting and soldering the trackpoint.
+I thank the whole open source ergonomic mechanical keyboard community for the projects they pushed out in the world and QMK developers for their support over their discord server. A special thanks to my friend Luca which helped me mounting and soldering the trackpoint.
