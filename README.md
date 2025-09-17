@@ -27,7 +27,7 @@ This is the solution I found and I'm learning touch typing for the first time in
 # :one: Keyboard firmware
 When it comes to firmware, there are mainly 2 options: QMK(for wired keyboards) and ZMK(for wireless keyboards). My old laptop has a fried wireless module, so I chose the adaptability of wired over the comfort of wireless.
 
-This layout was optimized for coding and typing purposes. It works only if you set the OS language to english.
+This layout was optimized for coding and typing purposes. It works only if you set the OS language input to english.
 
 The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in ```./Elil_50/rules.mk```. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of ```./Elil_50/keymap.c```.<br/>
 This option will not affect any other functionality.
@@ -54,6 +54,8 @@ The main selling point of flashable keyboards is the layout customization, so ge
 **flash.sh:** execute qmk_file_inject and qmk flash in user keyboard folder
 
 **commit_all.sh:** commits all changes, both of qmk_firmware submodule and my_qmk module (main folder)
+
+All the following actions are automatically performed by running ```./qmk_file_inject.sh```:
 
 * ### Keymap.c, rules.mk, config.h
 
