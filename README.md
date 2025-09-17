@@ -105,7 +105,7 @@ The world of key switches is really big. The important keywords you need to know
 Keycaps have an equally vast range of options: I'll show some in the image below. I bought DSA profile keycaps from Aliexpress and scratched the home rows with sandpaper (1 minute at most of handwork).
 
 <img src="./Images/key_switches.jpg" width="400">
-<img src="./Images/keycaps_profile.jpg" width="400">
+<img src="./Images/keycaps_profile.png" width="400">
 
 ## Trackpoint pinout setup (optional)
 <img src="./Images/Trackpoint_pinout.jpg" width="400">
