@@ -96,7 +96,7 @@ There are tons of sites who sell DIY kits and pre-builts: each one has their own
 ## External shell
 <img src="./Images/portable_config.jpg" width="400">
 
-I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-case-5-and-6-columns) and designed the light grey interlocking "case wall" you depicted above for portability purposes. Note that you don't need to unplug the TRRS cable from the keyboard (the less mechanical stress, the longer the life span). You can find its file in ```./stl_files/eiga-wall-Elil50.stl```.
+I 3D printed [this case](https://www.printables.com/model/347524-corne-keyboard-case-5-and-6-columns) and designed for portability purposes the light grey interlocking "case wall" depicted above. Note that you don't need to unplug the TRRS cable from the keyboard (the less mechanical stress, the longer the life span). You can find its file in ```./stl_files/eiga-wall-Elil50.stl```.
 
 
 ## Key Switches and Keycaps
