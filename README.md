@@ -27,6 +27,8 @@ This is the solution I found and I'm learning touch typing for the first time in
 # :one: Keyboard firmware
 When it comes to firmware, there are mainly 2 options: QMK(for wired keyboards) and ZMK(for wireless keyboards). My old laptop has a fried wireless module, so I chose the adaptability of wired over the comfort of wireless.
 
+## Keyboard layout
+
 This layout was optimized for coding and typing purposes. It works only if you set the OS language input to english.
 
 The trackpoint can be disabled by turning false the flag ```MY_TRACKPOINT_ENABLE``` in ```./Elil_50/rules.mk```. This action removes the automatic mouse layer, so reduce ```MY_MAX_LAYER``` by 1 at the beginning of ```./Elil_50/keymap.c```.<br/>
@@ -43,9 +45,9 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
 
-The main selling point of flashable keyboards is the layout customization, so get comfy with writing in the last part of ```./Elil_50/keymap.c``` and flashing it: it's really easy. Instead of remapping softwares and videogames, additional layers can be added in ```./Elil_50/keymap.c``` after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
-
 ## User files and changes to qmk_firmware
+
+The main selling point of flashable keyboards is the layout customization, so get comfy with writing in the last part of ```./Elil_50/keymap.c``` and flashing it: it's really easy. Instead of remapping softwares and videogames, additional layers can be added in ```./Elil_50/keymap.c``` after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
 
 * ### Executables
 
