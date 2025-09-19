@@ -45,6 +45,9 @@ The keymap I wrote does an automatic OS detection to use the right unicode input
 <img src="./Images/3.jpg" width=max-width>
 <img src="./Images/4.jpg" width=max-width>
 
+## Automatic Mouse Layer
+TO DO
+
 ## User files and changes to qmk_firmware
 
 The main selling point of flashable keyboards is the layout customization, so get comfy with writing in the last part of ```./Elil_50/keymap.c``` and flashing it: it's really easy. Instead of remapping softwares and videogames, additional layers can be added in ```./Elil_50/keymap.c``` after layer 3 (follow my comments) and linked in layer 2 with the syntax documented by QMK developers. Remember to change ```MY_MAX_LAYER``` according to the layers added or removed.
