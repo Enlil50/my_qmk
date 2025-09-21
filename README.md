@@ -9,7 +9,7 @@ This project is subdivided as it follows:
 # Just a keyboard for show?
 <img src="./Images/Keyboard_horizontal_open.jpg" width=max-width>
 
-I coded, but my hands always feel lost on big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance at the keyboard.<br/>
+I coded, but my hands always felt lost on big keyboards: I couldn't learn touch typing and my eyes hurt each time I took a quick glance at the keyboard.<br/>
 I coded, but my desk is comically high and I had the habit of pressing my wrists against its edges: my knuckles literally bled for months due to circulation issues. I tried using a comically high chair, but then it was my knees' turn to ache. I bought a footrest, but it didn't change anything.
 
 That's when I went down the ergonomic keyboard rabbit hole and discovered split keyboards.
