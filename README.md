@@ -60,7 +60,7 @@ The main selling point of flashable keyboards is the layout customization, so ge
 
 **commit_all.sh:** commits all changes, both of qmk_firmware submodule and crkbd_QMK module.
 
-Follow [QMK documentation](https://docs.qmk.fm/newbs_getting_started) for setting up your enviroment before flashing it to your keyboard. Note that Corne keyboards are called crkbd in the QMK framework. All the following actions are automatically performed by running ```./qmk_file_inject.sh```. Before running a program, remember to change it's permissions. For example, on Linux you run ```chmod +x program_name.sh```.  
+Follow [QMK documentation](https://docs.qmk.fm/newbs_getting_started) for setting up your enviroment before flashing it to your keyboard. Note that Corne keyboards are called crkbd in the QMK framework. All the following actions are automatically performed by running ```./qmk_file_inject.sh```. Before running a program, remember to change its permissions. For example, on Linux you run ```chmod +x program_name.sh```.  
 
 * ### Keymap.c, rules.mk, config.h
 
