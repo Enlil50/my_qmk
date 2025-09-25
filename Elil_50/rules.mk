@@ -1,6 +1,8 @@
 # Build Options
 #   change yes to no to disable
 #
+# Copyright 2025 Elil50 <@Elil50>
+# SPDX-License-Identifier: GPL-2.0-or-later 
 
 CONVERT_TO=rp2040_ce
 
